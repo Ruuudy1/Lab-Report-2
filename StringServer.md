@@ -1,3 +1,3 @@
-/add-message?s=<string>
+/add-message?s=hellooooo
 
 /add-message?s=How are you
