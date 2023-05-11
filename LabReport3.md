@@ -1,0 +1,129 @@
+<h1>Grep Command<h1>
+(found grep commands information on https://www.geeksforgeeks.org/grep-command-in-unixlinux/)
+
+The grep command is one of the most useful commands in bash. What the grep command does is find 
+all the times the character of your choice is found in a .txt file. For example, in the ./technical directory used during last week's skill demo, 
+we can use the following command on any file within it:
+
+Example:
+$ grep "definition" biomed/1468-6708-3-1.txt
+          drawback of this simple definition of 'healthy' is that
+          report results using only the simpler definition.
+          
+as we can see, this outputed the 2 lines that contain the characters "definition" which in this case it is seen in 2 times in this .txt file.
+but there is other functionalities to the grep command.
+
+<h2>-c command<h2>
+
+For example if we arent interested on the whole line were the characters are included but rather just to count how many times the word appears we can add "-c"
+right after grep.
+
+When using this on the previous example we get:
+
+Example 1:
+$ grep -c "definition" biomed/1468-6708-3-1.txt
+2
+
+this is as we expected since we saw previously that "definition" was only in this specific file twice which is why in this case we got the number 2. 
+This command will come in handy when we have a very long output and rather of us counting the iines ourselves we only get the number of lines.
+
+<h2>-h command<h2>
+
+at first I did not think this command did much as when I tried:
+
+$ grep -h "definition" biomed/1468-6708-3-1.txt
+          drawback of this simple definition of 'healthy' is that
+          report results using only the simpler definition.
+
+$ grep "definition" biomed/1468-6708-3-1.txt
+          drawback of this simple definition of 'healthy' is that
+          report results using only the simpler definition.
+          
+both commands seemed to produce the same output. Yet this command is really usefull paired with the "*" in the filename or filetype, 
+As now we can look through ALL the files type .txt in biomed or any other folder without getting the file it is from in our output.
+
+
+Example 2:
+(for the sake of fitting the whole output in one page I will use a different folder within ./terminal) 
+         
+without -h command:
+$ grep "definition" government/About_LSC/*.txt
+government/About_LSC/commission_report.txt:Furthermore, H-2A workers by definition are physically present in
+government/About_LSC/commission_report.txt:Furthermore, H-2A workers by definition are physically present in
+government/About_LSC/commission_report.txt:definition are required to leave the United States within a year,
+government/About_LSC/diversity_priorities.txt:and new definitions of diversity and leadership will be crafted. We
+government/About_LSC/diversity_priorities.txt:boards of Directors, new definitions of leadership --will be
+government/About_LSC/diversity_priorities.txt:Lack of a common definition/vision of
+government/About_LSC/diversity_priorities.txt:definition and vision of diversity and earmarking resources so that
+government/About_LSC/diversity_priorities.txt:Conferees found that programs lacked a common definition and
+government/About_LSC/diversity_priorities.txt:based on an expanded definition of advocacy, moving beyond
+government/About_LSC/diversity_priorities.txt:A common definition of diversity is developed. It is informed by
+government/About_LSC/LegalServCorp_v_VelazquezOpinion.txt:definition of its program in every case, lest the First Amendment
+government/About_LSC/reporting_system.txt:! Clarification of definitions. For example, "web hits" were
+government/About_LSC/Special_report_to_congress.txt:definition of a "case." However clear and meaningful the definition
+government/About_LSC/Special_report_to_congress.txt:definition had not kept pace with the changes in the service
+government/About_LSC/Special_report_to_congress.txt:not meet the definition of a "closed case," as previously detailed.
+government/About_LSC/Special_report_to_congress.txt:simple cost-per-case analysis, without further definition, would
+government/About_LSC/Special_report_to_congress.txt:very important activities that do not fall within the definition of
+government/About_LSC/Special_report_to_congress.txt:definition of a case.
+
+with -h command:
+$ grep -h "definition" government/About_LSC/*.txt
+    Furthermore, H-2A workers by definition are physically present in
+    Furthermore, H-2A workers by definition are physically present in
+    definition are required to leave the United States within a year,
+    and new definitions of diversity and leadership will be crafted. We
+    boards of Directors, new definitions of leadership --will be
+    Lack of a common definition/vision of
+    definition and vision of diversity and earmarking resources so that
+    Conferees found that programs lacked a common definition and
+    based on an expanded definition of advocacy, moving beyond
+    A common definition of diversity is developed. It is informed by
+    definition of its program in every case, lest the First Amendment
+    ! Clarification of definitions. For example, "web hits" were
+    definition of a "case." However clear and meaningful the definition
+    definition had not kept pace with the changes in the service
+    not meet the definition of a "closed case," as previously detailed.
+    simple cost-per-case analysis, without further definition, would
+    very important activities that do not fall within the definition of
+    definition of a case.
+
+
+This is very useful when we want to quickly find/copy-paste over a line(s) a character is found at without having to take the time
+to erase the path of every single one at a time. It also makes it slighty easier to read.
+
+
+
+
+
+<h2>-C(#) command<h2>
+
+Finally, in my opinion the most useful command to use with grep is -C (capital C.) This command is really useful with grep
+as when you see the lines before and after a string of characters of you choice giving you more context of what is going on when that word is mentioned. 
+This is extremely essential as it lets you skim the text where you found that word quickly and efficiently as it separates the times the characters were found with "--"
+and also very versatile as you get to pick how many lines foward and back from the string of characters you want to output.
+
+Example 3:
+
+Without -C(#):
+$ grep "definition" biomed/1468-6708-3-1.txt
+          drawback of this simple definition of 'healthy' is that
+          report results using only the simpler definition.
+
+With -C(#):
+$ grep -C2 "definition" biomed/1468-6708-3-1.txt
+          throughout). Since people reported their health every 6
+          months, YHL has a reasonably continuous distribution. A
+          drawback of this simple definition of 'healthy' is that
+          it does not distinguish between fair or poor health and
+          death, since all are considered 'not healthy'. We also
+--
+          value to each level of EVGFP [ 19 ] . Preliminary results
+          were similar for the two approaches, however, and we
+          report results using only the simpler definition.
+          The calculations had to be modified to include the 438
+          persons in the second African American cohort, who have
+
+
+This command is a mix of -A (output lines after the line were the string of characters was found) and 
+-B (output lines beforethe line were the string of characters was found) yet it provides the best of both commands.
