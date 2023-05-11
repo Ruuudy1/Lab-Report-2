@@ -47,11 +47,15 @@ the bug I will be focusing on from lab 3 is in the AverageWithoutLowest2() metho
 
 ![AverageWithoutLowest2()](https://github.com/Ruuudy1/Lab-Report-2/assets/130013367/669306a6-05e2-45a0-afdb-5ace57587673)
 
-This one was tricky to figure out at first. Ywt when looking at the code for the method: 
+This one was tricky to figure out at first. yet when looking at the code for the method: 
 
 ![image](https://github.com/Ruuudy1/Lab-Report-2/assets/130013367/12a6d66e-44f0-43d6-b8f9-11c4dc8ed987)
 
 The symptom we were testing for is an incorrect value, which we got when we tested {-1,-1,-1}. This happened because there is a bug in the second for loop. When there are multiple numbers at the lowest value, NONE of them get added to the sum, when only one of them shouldn’t. Giving us 0 as the output.
+
+To fix this what I did is iterate through the loop and only store the lowest variable once to take into account the I subtracted this number from the sum of my array.
+
+![image](https://github.com/Ruuudy1/Lab-Report-2/assets/130013367/3b383bcb-7c7e-408b-b13a-3757d8c252a9)
 
 
 Part 3:
