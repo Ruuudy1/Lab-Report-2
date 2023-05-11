@@ -1,7 +1,7 @@
-<h1>Grep Command<h1>
-(found grep commands information on https://www.geeksforgeeks.org/grep-command-in-unixlinux/)
+<h1>Grep Commands!<h1>
+<h2>(found grep commands information on https://www.geeksforgeeks.org/grep-command-in-unixlinux/)<h2>
 
-The grep command is one of the most useful commands in bash. What the grep command does is find 
+<h3>The grep command is one of the most useful commands in bash. What the grep command does is find 
 all the times the character of your choice is found in a .txt file. For example, in the ./technical directory used during last week's skill demo, 
 we can use the following command on any file within it:
 
@@ -11,11 +11,11 @@ $ grep "definition" biomed/1468-6708-3-1.txt
           report results using only the simpler definition.
           
 as we can see, this outputed the 2 lines that contain the characters "definition" which in this case it is seen in 2 times in this .txt file.
-but there is other functionalities to the grep command.
+but there is other functionalities to the grep command.<h3>
 
 <h2>-c command<h2>
 
-For example if we arent interested on the whole line were the characters are included but rather just to count how many times the word appears we can add "-c"
+<h3>For example if we arent interested on the whole line were the characters are included but rather just to count how many times the word appears we can add "-c"
 right after grep.
 
 When using this on the previous example we get:
@@ -25,11 +25,11 @@ $ grep -c "definition" biomed/1468-6708-3-1.txt
 2
 
 this is as we expected since we saw previously that "definition" was only in this specific file twice which is why in this case we got the number 2. 
-This command will come in handy when we have a very long output and rather of us counting the iines ourselves we only get the number of lines.
+This command will come in handy when we have a very long output and rather of us counting the iines ourselves we only get the number of lines.<h3>
 
 <h2>-h command<h2>
 
-at first I did not think this command did much as when I tried:
+<h3>at first I did not think this command did much as when I tried:
 
 $ grep -h "definition" biomed/1468-6708-3-1.txt
           drawback of this simple definition of 'healthy' is that
@@ -90,20 +90,52 @@ $ grep -h "definition" government/About_LSC/*.txt
 
 
 This is very useful when we want to quickly find/copy-paste over a line(s) a character is found at without having to take the time
-to erase the path of every single one at a time. It also makes it slighty easier to read.
+to erase the path of every single one at a time. It also makes it slighty easier to read. <h3>
 
-
-
-
-
+<h2>-i command<h2>
+          
+<h3>Another useful command to truly get all outputs of a string of characters is "-i". This command does not take Capitalization (lowercase/undercase) into consideration 
+when searching for a string. This is really usefull to truly find all words that match that character as many times some words inside the .txt file could be Capitalized (Hello) 
+or in all Caps (HELLO) and normal grep will not find there if you only give write grep "hello" ... 
+          
+Example 3:
+without "-i":  
+$ grep "america" biomed/1472-6882-1-10.txt
+        Mazama americana trinitatis ), lappe
+          Solanum americanum leaf decoction
+          Solanum americanum leaf extracts
+          
+with "-i": 
+$ grep -i "america" biomed/1472-6882-1-10.txt
+        Mazama americana trinitatis ), lappe
+          use are very similar to those of the South American
+          related to those previously practiced in South America.
+          native South American groups.
+          There are indications that South American Amerindians
+          America also believed that deer had an inoffensive body
+          is of the closely related South American and Caribbean
+          Studies in South America detail the pain and oedema at
+          America and the Caribbean). All folk-medicinal uses are
+          Indies, Venezuela, South and Central America against
+          American rattlesnake (
+          America and the Caribbean [ 52 86 ] . Poultices are used
+          Throughout tropical Central and South America, leaves
+          In South America leaves are used for inflammatory
+          general cure-all in Latin America and the Caribbean [ 16
+          noted in the meticulous data compiled on Middle America [
+          Solanum americanum leaf decoction
+          Solanum americanum leaf extracts
+          
+As we can see far more outputs appeared since in a lo of cases throughout this file "america" is capitalized.<h3>        
+          
 <h2>-C(#) command<h2>
 
-Finally, in my opinion the most useful command to use with grep is -C (capital C.) This command is really useful with grep
+<h3>Finally, in my opinion the most useful command to use with grep is -C (capital C.) This command is really useful with grep
 as when you see the lines before and after a string of characters of you choice giving you more context of what is going on when that word is mentioned. 
 This is extremely essential as it lets you skim the text where you found that word quickly and efficiently as it separates the times the characters were found with "--"
 and also very versatile as you get to pick how many lines foward and back from the string of characters you want to output.
 
-Example 3:
+Example 4:
 
 Without -C(#):
 $ grep "definition" biomed/1468-6708-3-1.txt
@@ -126,4 +158,4 @@ $ grep -C2 "definition" biomed/1468-6708-3-1.txt
 
 
 This command is a mix of -A (output lines after the line were the string of characters was found) and 
--B (output lines beforethe line were the string of characters was found) yet it provides the best of both commands.
+-B (output lines beforethe line were the string of characters was found) yet it provides the best of both commands.<h3>
