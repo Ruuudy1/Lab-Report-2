@@ -33,3 +33,14 @@ String query = s = how are you?
 How do the values of any relevant fields of the class change from this specific request? If no values got changed, explain why.
 
 /add-message?s=How are you
+
+
+
+
+Part 3:
+
+One thing I learned in labs from weeks 2 and 3 is how debug my code more efficiently. I really liked the material we covered in week 3 
+most notably the article we learned in which it compared the student's midnset on what is right to the teachers way of a progra being right.
+I founf it really funny but relatable to me as I also call it a day after jjst running my code a few times an seeing it compile correctly. 
+I think this is the most import thing we have learned
+so far as it has also come in really handy to me in CSE12 as we constantly work with junit and I often find myself stuck with bugs.
